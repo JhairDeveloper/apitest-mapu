@@ -2,7 +2,7 @@ trigger:
   - main
 
 pool:
-  name: Default # O el nombre de tu pool de agentes
+  name: PracticaAgent01 # O el nombre de tu pool de agentes
   demands:
     - agent.name -equals viviagent
 
