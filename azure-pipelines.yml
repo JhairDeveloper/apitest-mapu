@@ -1,0 +1,50 @@
+trigger:
+  - main
+
+pool:
+  name: Default # O el nombre de tu pool de agentes
+  demands:
+    - agent.name -equals viviagent
+
+steps:
+  - task: UseNode@1
+    inputs:
+      version: "18.x"
+
+  - script: |
+      npm install
+    displayName: "Instalar dependencias"
+
+  - script: |
+      npm run lint
+    displayName: "Ejecutar ESLint"
+
+  - script: |
+      npm test
+    displayName: "Ejecutar Pruebas Unitarias"
+
+  - script: |
+      npm run snyk
+    displayName: "Ejecutar Snyk"
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: "$(Build.SourcesDirectory)"
+      includeRootFolder: false
+      archiveType: "zip"
+      archiveFile: "$(Build.ArtifactStagingDirectory)/app.zip"
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: "$(Build.ArtifactStagingDirectory)"
+      artifactName: "drop"
+
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: "Azure for Students(e4ab839e-a978-4b88-8ea0-004e92b4c56b)"
+      appType: "webAppLinux"
+      appName: "devop-test"
+      package: "$(Build.ArtifactStagingDirectory)/*.zip"
+      runtimeStack: "NODE|18-lts"
+      StartupCommand: "npm start"
