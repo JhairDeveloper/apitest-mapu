@@ -12,6 +12,7 @@ steps:
       version: "18.x"
 
   - script: |
+      Import-Module Microsoft.PowerShell.Security
       npm install
     displayName: "Instalar dependencias"
 
