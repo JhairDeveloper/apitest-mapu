@@ -2,9 +2,9 @@ trigger:
   - main
 
 pool:
-  name: Default # O el nombre de tu pool de agentes
+  name: jhair01 # O el nombre de tu pool de agentes
   demands:
-    - agent.name -equals myagent
+    - agent.name -equals jhair
 
 steps:
   - task: UseNode@1
