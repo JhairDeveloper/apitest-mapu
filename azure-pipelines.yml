@@ -3,8 +3,8 @@ trigger:
 
 pool:
   name: PracticaAgent01 # O el nombre de tu pool de agentes
-  demands:
-    - agent.name -equals viviagent
+  # demands:
+    # - agent.name -equals viviagent
 
 steps:
   - task: UseNode@1
@@ -42,9 +42,17 @@ steps:
 
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: "Azure for Students(e4ab839e-a978-4b88-8ea0-004e92b4c56b)"
-      appType: "webAppLinux"
-      appName: "devop-test"
-      package: "$(Build.ArtifactStagingDirectory)/*.zip"
-      runtimeStack: "NODE|18-lts"
-      StartupCommand: "npm start"
+      azureSubscription: 'Azure for Students(1)(004ab24a-ab3b-4463-90c8-e660a87984c1)'
+      appType: 'webAppLinux'
+      appName: 'dev-op-test'
+      package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      runtimeStack: 'NODE|18-lts'
+      startUpCommand: 'npm start'
+  # - task: AzureWebApp@1
+  #   inputs:
+  #     azureSubscription: "Azure for Students(e4ab839e-a978-4b88-8ea0-004e92b4c56b)"
+  #     appType: "webAppLinux"
+  #     appName: "devop-test"
+  #     package: "$(Build.ArtifactStagingDirectory)/*.zip"
+  #     runtimeStack: "NODE|18-lts"
+  #     StartupCommand: "npm start"
