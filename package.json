@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha --require esm --reporter spec 'src/tests/**/*.test.mjs'",
+    "test": "mocha --reporter spec --require esm 'src/tests/**/*.test.mjs'",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint src/**/*.js --fix",
     "dev": "nodemon app.js",
@@ -23,6 +23,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
+    "isexe": "^3.1.1",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",
@@ -34,12 +35,12 @@
     "qrcode": "^1.5.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.7.0",
+    "@eslint/js": "^9.8.0",
     "chai": "^5.1.1",
-    "mocha": "^10.6.0",
-    "eslint": "^9.7.0",
+    "eslint": "^9.8.0",
     "esm": "^3.2.25",
     "globals": "^15.8.0",
+    "mocha": "^10.7.0",
     "nodemon": "^2.0.22",
     "snyk": "^1.1292.1",
     "testdouble": "^3.20.2"
