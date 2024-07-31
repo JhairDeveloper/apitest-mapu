@@ -42,7 +42,7 @@ steps:
 
   - task: AzureWebApp@1
     inputs:
-      azureSubscription: 'Azure for Students(3)(004ab24a-ab3b-4463-90c8-e660a87984c1)'
+      azureSubscription: 'Azure for Students(004ab24a-ab3b-4463-90c8-e660a87984c1)'
       appType: 'webAppLinux'
       appName: 'dev-op-test'
       package: '$(System.DefaultWorkingDirectory)/**/*.zip'
