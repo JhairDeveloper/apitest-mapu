@@ -2,9 +2,10 @@ trigger:
   - main
 
 pool:
-  name: jhair01 # O el nombre de tu pool de agentes
-  demands:
-    - agent.name -equals jhair
+  # name: jhair01 # O el nombre de tu pool de agentes
+  # demands:
+  #   - agent.name -equals jhair
+  vmImage: 'ubuntu-latest'
 
 steps:
   - task: UseNode@1
