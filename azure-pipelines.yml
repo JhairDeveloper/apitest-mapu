@@ -2,9 +2,9 @@ trigger:
   - main
 
 pool:
-  # name: jhair01 # O el nombre de tu pool de agentes
+  # name: jhair # O el nombre de tu pool de agentes
   # demands:
-  #   - agent.name -equals jhair
+    # - agent.name -equals jhair
   vmImage: 'ubuntu-latest'
 
 
@@ -51,7 +51,8 @@ steps:
       azureSubscription: 'Azure for Students(004ab24a-ab3b-4463-90c8-e660a87984c1)'
       appType: 'webAppLinux'
       appName: 'dev-op-test'
-      package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      # package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      package: '$(System.DefaultWorkingDirectory)/myapp.zip'
       runtimeStack: 'NODE|18-lts'
       startUpCommand: 'npm start'
   
